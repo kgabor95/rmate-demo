@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "test": "mocha test/*.js --reporter mochawesome --reporter-options reportDir=report,json=false --timeout 12000",
+    "lint": "eslint . --fix",
+    "clean": "rimraf ./report"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "chai": "^4.3.6",
+    "eslint": "^8.16.0",
+    "husky": "^8.0.1",
+    "mocha": "^10.0.0",
+    "mochawesome": "^7.1.3",
+    "yarn": "^1.22.18"
+  }
+}
