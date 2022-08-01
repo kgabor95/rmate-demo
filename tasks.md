@@ -1,5 +1,5 @@
 ### Main Tasks
- - A test design for the [Nasa APOD Api](https://api.nasa.gov/planetary/apod/) containing the test cases with priorization
+ - A test design for the [Nasa APOD Api](https://api.nasa.gov/planetary/apod/) containing the test cases with prioritization
  - The most important test cases are implemented
  - Handle authentication tokens as secrets
  - Optional: Create scheduled runs using Github Actions and make the artifacts accessible
