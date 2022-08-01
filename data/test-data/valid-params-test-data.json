@@ -1,0 +1,28 @@
+[
+    {
+        "params": {},
+        "description": "Without parameter"
+    },
+    {
+        "params": {
+            "date": "2022-07-18",
+            "thumbs": true
+        },
+        "description": "Valid date & thumbs parameters"
+    },
+    {
+        "params": {
+            "start_date": "2022-07-18",
+            "end_date": "2022-07-25",
+            "thumbs": true
+        },
+        "description": "Valid start-end date & thumbs parameters"
+    },
+    {
+        "params": {
+            "count": "1",
+            "thumbs": true
+        },
+        "description": "Valid count & thumbs parameters"
+    }
+]

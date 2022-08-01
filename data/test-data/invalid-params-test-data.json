@@ -1,0 +1,38 @@
+[
+    {
+        "params": {
+            "date":"2022-07-18",
+            "start_date": "2022-07-18",
+            "end_date": "2022-07-25",
+            "count": "1",
+            "thumbs": true
+        },
+        "description": "With all parameters"
+    },
+    {
+        "params": {
+            "start_date": "2022-07-18",
+            "end_date": "2022-07-25",
+            "count": "1",
+            "thumbs": true
+        },
+        "description": "With all parameters except date"
+    },
+    {
+        "params": {
+            "date":"2022-07-18",
+            "count": "1",
+            "thumbs": true
+        },
+        "description": "With all parameters except start date and end date"
+    },
+    {
+        "params": {
+            "date":"2022-07-18",
+            "start_date": "2022-07-18",
+            "end_date": "2022-07-25",
+            "thumbs": true
+        },
+        "description": "With all parameters except count"
+    }
+]
