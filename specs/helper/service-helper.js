@@ -7,11 +7,8 @@ async function getApodRequest(payload, authenticated) {
     if (authenticated === true) {
         params.append("api_key", apiKey);
     }
-    console.log("Request: ", `https://api.nasa.gov/planetary/apod?${params}`);
+    //console.log("Request: ", `https://api.nasa.gov/planetary/apod?${params}`);
     const res = await axios.get(`https://api.nasa.gov/planetary/apod?${params}`);
-
-    const data = res.data;
-    console.log("Response: ", data);
 
     return res;
 }
