@@ -13,7 +13,7 @@
     {
         "params": {
             "start_date": "2022-07-18",
-            "end_date": "2022-07-25",
+            "end_date": "2022-07-20",
             "thumbs": true
         },
         "description": "Valid start-end date & thumbs parameters"

@@ -1,0 +1,142 @@
+[
+    {
+        "params": {
+            "invalidParam": null,
+            "invalidParamDate": "today"
+        },
+        "description": "Invalid parameters"
+    },
+    {
+        "params": {
+            "date": "3000-01-01"
+        },
+        "description": "Invalid date (future date)"
+    },
+    {
+        "params": {
+            "date": "0001-01-01"
+        },
+        "description": "Invalid date (too early)"
+    },
+    {
+        "params": {
+            "date": "2000-01-33"
+        },
+        "description": "Invalid date (not existing date)"
+    },
+    {
+        "params": {
+            "date": "18-07-2022"
+        },
+        "description": "Invalid date format (DD-MM-YYYY)"
+    },
+    {
+        "params": {
+            "date": " "
+        },
+        "description": "Invalid date (empty)"
+    },
+    {
+        "params": {
+            "date": null
+        },
+        "description": "Invalid date (null)"
+    },
+    {
+        "params": {
+            "date": true
+        },
+        "description": "Invalid date type (boolean)"
+    },
+    {
+        "params": {
+            "start_date": "2200-01-01",
+            "end_date": "2200-01-02"
+        },
+        "description": "Future start-end dates"
+    },
+    {
+        "params": {
+            "start_date": "2022-01-01",
+            "end_date": "2200-01-01"
+        },
+        "description": "Valid start date future end date"
+    },
+    {
+        "params": {
+            "start_date": "2000-01-02",
+            "end_date": "2000-01-01"
+        },
+        "description": "The start date is later than the end date"
+    },
+    {
+        "params": {
+            "start_date": "01-01-2000",
+            "end_date": "2000-01-02"
+        },
+        "description": "Invalid end date format (DD-MM-YYYY)"
+    },
+    {
+        "params": {
+            "start_date": "2000-01-01",
+            "end_date": "02-01-2000"
+        },
+        "description": "Invalid start date format (DD-MM-YYYY)"
+    },
+    {
+        "params": {
+            "start_date": " ",
+            "end_date": " "
+        },
+        "description": "Invalid dates (empty dates)"
+    },
+    {
+        "params": {
+            "start_date": true,
+            "end_date": false
+        },
+        "description": "Invalid dates (boolean dates)"
+    },
+    {
+        "params": {
+            "count": "100000"
+        },
+        "description": "Count 100.000"
+    },
+    {
+        "params": {
+            "count": "0"
+        },
+        "description": "Count 0"
+    },
+    {
+        "params": {
+            "count": "-1"
+        },
+        "description": "Count -1"
+    },
+    {
+        "params": {
+            "count": " "
+        },
+        "description": "Count empty"
+    },
+    {
+        "params": {
+            "count": true
+        },
+        "description": "Count true"
+    },
+    {
+        "params": {
+            "count": "two"
+        },
+        "description": "Count 'two'"
+    },
+    {
+        "params": {
+            "count": "20.1"
+        },
+        "description": "Count 20.1"
+    }
+]
