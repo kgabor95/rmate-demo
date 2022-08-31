@@ -6,7 +6,7 @@ const { getApodRequest } = require("../../specs/helper/service-helper");
 const validParamsTestData = require("../../data/test-data/valid-params-test-data.json");
 const invalidEdgeCaseTestData = require("../../data/test-data/invalid-edge-case-test-data.json");
 const invalidParamCombinations = require("../../data/test-data/invalid-param-combinations-test-data.json");
-const validateApodSchema = require("../../specs/json-schemas/apod.json-schemas");
+const validateSchema = require("../../specs/json-schemas/apod.json-schemas");
 
 describe("NASA API Regression - Astronomy Picture of the Day", () => {
     describe("authenticated - GET /planetary/apod", () => {
@@ -15,9 +15,7 @@ describe("NASA API Regression - Astronomy Picture of the Day", () => {
             for (let i = 0; i < validParamsTestData.length; i++) {
                 it(`response object should match the schema for: ${validParamsTestData[i].description}`, async () => {
                     const response = await getApodRequest(validParamsTestData[i].params, true);
-                    const isValidApodSchema = !validateApodSchema(response.data);
-                    //console.debug("Schema error: ", validateApodSchema.errors);
-                    console.debug("Response: ", response.data);
+                    const isValidApodSchema = validateSchema(response.data, validParamsTestData[i].schema);
                     expect(isValidApodSchema).to.be.true;
                 });
             }
@@ -45,7 +43,6 @@ describe("NASA API Regression - Astronomy Picture of the Day", () => {
                     } catch (ex) {
                         // console.debug("Error message: ", ex.response.data);
                         expect(ex.response.status).to.be.equal(StatusCodes.BAD_REQUEST);
-                        //expect(ex.response.data.msg).to.be.equal(invalidFieldCombinationMessage);
                     }
                 });
             }

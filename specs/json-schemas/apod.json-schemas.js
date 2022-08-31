@@ -6,10 +6,13 @@ const todayDate = new Date().toISOString().slice(0, 10);
 const apodItemSchema = {
     type: "object",
     properties: {
+        copyright: {
+            type: "string",
+        },
         date: {
             type: "string",
             format: "date",
-            formatExclusiveMaximum: `${todayDate}`,
+            formatMaximum: `${todayDate}`,
         },
         explanation: {
             type: "string",
@@ -35,9 +38,31 @@ const apodItemSchema = {
     required: ["date", "explanation", "hdurl", "media_type", "service_version", "title", "url"],
 };
 
-const apodSchema = {
+const apodArraySchema = {
     type: "array",
     items: apodItemSchema,
 };
 
-module.exports = ajvInstance.compile(apodSchema);
+const schemas = {
+    apodItemSchema,
+    apodArraySchema,
+};
+
+/**
+ * Schema validation
+ *
+ * @param  {string} data Response message to validate
+ * @param  {string} schema Expected schema of the response
+ * @returns {boolean} Schema is valid or not
+ */
+function validateSchema(data, schema) {
+    const validate = ajvInstance.compile(schemas[schema]);
+    const valid = validate(data);
+    if (!valid) {
+        console.error(validate.errors);
+        return false;
+    }
+    return true;
+}
+
+module.exports = validateSchema;
