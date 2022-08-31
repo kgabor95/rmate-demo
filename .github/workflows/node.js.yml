@@ -1,6 +1,7 @@
 name: Node.js CI
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main", "qa-solution-by-rmate" ]
   pull_request:
@@ -25,9 +26,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Test Reporter
-      uses: dorny/test-reporter@v1.5.0
-
     - run: yarn install
     - run: yarn test
     env: 
