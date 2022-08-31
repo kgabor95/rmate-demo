@@ -25,6 +25,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - name: Test Reporter
+      uses: dorny/test-reporter@v1.5.0
+
     - run: yarn install
     - run: yarn test
     env: 
