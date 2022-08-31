@@ -1,14 +1,16 @@
 [
     {
         "params": {},
-        "description": "Without parameter"
+        "description": "Without parameter",
+        "schema": "apodItemSchema"
     },
     {
         "params": {
             "date": "2022-07-18",
             "thumbs": true
         },
-        "description": "Valid date & thumbs parameters"
+        "description": "Valid date & thumbs parameters",
+        "schema": "apodItemSchema"
     },
     {
         "params": {
@@ -16,13 +18,15 @@
             "end_date": "2022-07-20",
             "thumbs": true
         },
-        "description": "Valid start-end date & thumbs parameters"
+        "description": "Valid start-end date & thumbs parameters",
+        "schema": "apodArraySchema"
     },
     {
         "params": {
             "count": "1",
             "thumbs": true
         },
-        "description": "Valid count & thumbs parameters"
+        "description": "Valid count & thumbs parameters",
+        "schema": "apodArraySchema"
     }
 ]
