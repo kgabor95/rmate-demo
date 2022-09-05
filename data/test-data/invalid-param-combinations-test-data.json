@@ -7,7 +7,7 @@
             "count": "1",
             "thumbs": true
         },
-        "description": "With all parameters"
+        "description": "All parameters cannot be specified at the same time"
     },
     {
         "params": {
@@ -16,7 +16,7 @@
             "count": "1",
             "thumbs": true
         },
-        "description": "With all parameters except date"
+        "description": "Date interval and count cannot be specified at the same time"
     },
     {
         "params": {
@@ -24,7 +24,7 @@
             "count": "1",
             "thumbs": true
         },
-        "description": "With all parameters except start date and end date"
+        "description": "Date and count cannot be specified at the same time"
     },
     {
         "params": {
@@ -33,6 +33,6 @@
             "end_date": "2022-07-25",
             "thumbs": true
         },
-        "description": "With all parameters except count"
+        "description": "Date and Date interval cannot be specified at the same time"
     }
 ]
