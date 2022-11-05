@@ -1,9 +1,16 @@
 {
+  "name": "e2-demo-package",
+  "version": "1.0.0",
+  "description": "Basic API test automation framework for NASA APOD",
+  "author": "Mate Radnai",
   "scripts": {
     "test": "npm run clean && mocha test/**/*.tests.js --reporter mochawesome --reporter-options reportDir=report,json=false --timeout 12000",
     "test:parallel": "npm run clean && mocha test/**/*.tests.js --parallel --reporter mochawesome --reporter-options reportDir=report,json=false --timeout 12000",
     "lint": "eslint . --fix",
     "clean": "rimraf ./report"
+  },
+  "engines": {
+    "node": ">=16.9.0"
   },
   "dependencies": {
     "ajv": "^8.11.0",

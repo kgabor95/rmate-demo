@@ -1,6 +1,8 @@
 const axios = require("axios");
 const url = require("url");
-const apiKey = process.env.NASA_API_KEY;
+const {HOST, APOD_PATH, API_KEY} = require("../constants/constants");
+
+const createUrl = (path, query) => [HOST, path].join("/") + (query ? `?${query}` : query);
 
 /**
  * Create get request for Apod
@@ -12,14 +14,14 @@ const apiKey = process.env.NASA_API_KEY;
 async function getApodRequest(payload, isAuthenticatedSession) {
     const params = new url.URLSearchParams(payload);
     if (isAuthenticatedSession === true) {
-        if (apiKey) {
-            params.append("api_key", apiKey);
+        if (API_KEY) {
+            params.append("api_key", API_KEY);
         } else {
             console.error("NASA_API_KEY Secret is missing!");
         }
     }
-    // console.debug("Request: ", `https://api.nasa.gov/planetary/apod?${params}`);
-    const res = await axios.get(`https://api.nasa.gov/planetary/apod?${params}`);
+    const requestUrl = createUrl(APOD_PATH, params);
+    const res = await axios.get(requestUrl);
 
     return res;
 }

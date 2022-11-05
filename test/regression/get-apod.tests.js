@@ -12,10 +12,10 @@ describe("NASA API Regression - Astronomy Picture of the Day", () => {
     describe("authenticated - GET /planetary/apod", () => {
         describe("positive cases", () => {
             // outline
-            for (let i = 0; i < validParamsTestData.length; i++) {
-                it(`response object should match the schema for: ${validParamsTestData[i].description}`, async () => {
-                    const response = await getApodRequest(validParamsTestData[i].params, true);
-                    const isValidApodSchema = validateSchema(response.data, validParamsTestData[i].schema);
+            for (const element of validParamsTestData) {
+                it(`response object should match the schema for: ${element.description}`, async () => {
+                    const response = await getApodRequest(element.params, true);
+                    const isValidApodSchema = validateSchema(response.data, element.schema);
                     expect(isValidApodSchema).to.be.true;
                 });
             }
@@ -23,25 +23,23 @@ describe("NASA API Regression - Astronomy Picture of the Day", () => {
 
         describe("negative cases", () => {
             // outline
-            for (let i = 0; i < invalidParamCombinations.length; i++) {
-                it(`should return proper status, error message in case of: ${invalidParamCombinations[i].description}`, async () => {
+            for (const element of invalidParamCombinations) {
+                it(`should return proper status, error message in case of: ${element.description}`, async () => {
                     try {
-                        await getApodRequest(invalidParamCombinations[i].params, true);
+                        await getApodRequest(element.params, true);
                         assert.fail(`Request processing did not fail with HTTP Error Code '${StatusCodes.BAD_REQUEST}' and error msg: '${invalidFieldCombinationMessage}'`);
                     } catch (ex) {
-                        // console.debug("Error message: ", ex.response.data);
                         expect(ex.response.status).to.be.equal(StatusCodes.BAD_REQUEST);
                         expect(ex.response.data.msg).to.be.equal(invalidFieldCombinationMessage);
                     }
                 });
             }
-            for (let i = 0; i < invalidEdgeCaseTestData.length; i++) {
-                it(`should return proper status, error message in case of: ${invalidEdgeCaseTestData[i].description}`, async () => {
+            for (const element of invalidEdgeCaseTestData) {
+                it(`should return proper status, error message in case of: ${element.description}`, async () => {
                     try {
-                        await getApodRequest(invalidEdgeCaseTestData[i].params, true);
+                        await getApodRequest(element.params, true);
                         assert.fail(`Request processing did not fail with HTTP Error Code '${StatusCodes.BAD_REQUEST}' and error msg: 'TODO'`);
                     } catch (ex) {
-                        // console.debug("Error message: ", ex.response.data);
                         expect(ex.response.status).to.be.equal(StatusCodes.BAD_REQUEST);
                     }
                 });
@@ -52,13 +50,12 @@ describe("NASA API Regression - Astronomy Picture of the Day", () => {
     describe("unauthenticated - GET /planetary/apod", () => {
         describe("negative cases", () => {
             // outline
-            for (let i = 0; i < validParamsTestData.length; i++) {
-                it(`should return proper status, code, message for: ${validParamsTestData[i].description}`, async () => {
+            for (const element of validParamsTestData) {
+                it(`should return proper status, code, message for: ${element.description}`, async () => {
                     try {
-                        await getApodRequest(validParamsTestData[i].params);
+                        await getApodRequest(element.params);
                         assert.fail(`Request processing did not fail with HTTP Error Code '${StatusCodes.FORBIDDEN}' and error msg: '${unauthenticatedErrorMessage}'`);
                     } catch (ex) {
-                        // console.debug("Error message: ", ex.response.data);
                         expect(ex.response.status).to.be.equal(StatusCodes.FORBIDDEN);
                         expect(ex.response.data.error.code).to.equal("API_KEY_MISSING");
                         expect(ex.response.data.error.message).to.equal(unauthenticatedErrorMessage);

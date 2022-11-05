@@ -1,7 +1,6 @@
-/* eslint-disable no-magic-numbers */
 /* eslint-disable camelcase */
 const ajvInstance = require("./ajv-instance");
-const todayDate = new Date().toISOString().slice(0, 10);
+const todayDate = new Date().toISOString().split("T")[0];
 
 const apodItemSchema = {
     type: "object",

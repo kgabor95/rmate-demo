@@ -7,9 +7,9 @@ describe("NASA API Health - Astronomy Picture of the Day", () => {
     describe("authenticated - GET /planetary/apod", () => {
         describe("positive cases", () => {
             // outline
-            for (let i = 0; i < validTestData.length; i++) {
-                it(`should return proper status code for: ${validTestData[i].description}`, async () => {
-                    const response = await getApodRequest(validTestData[i].params, true);
+            for (const element of validTestData) {
+                it(`should return proper status code for: ${element.description}`, async () => {
+                    const response = await getApodRequest(element.params, true);
                     expect(response.status).to.be.equal(StatusCodes.OK);
                 });
             }
