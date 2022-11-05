@@ -11,7 +11,7 @@ const createUrl = (path, query) => [HOST, path].join("/") + (query ? `?${query}`
  * @param  {boolean} isAuthenticatedSession true if API key is provided
  * @return response of the Apod API
  */
-async function getApodRequest(payload, isAuthenticatedSession) {
+const getApodRequest = async (payload, isAuthenticatedSession) => {
     const params = new url.URLSearchParams(payload);
     if (isAuthenticatedSession === true) {
         if (API_KEY) {
@@ -24,7 +24,7 @@ async function getApodRequest(payload, isAuthenticatedSession) {
     const res = await axios.get(requestUrl);
 
     return res;
-}
+};
 
 module.exports = {
     getApodRequest,

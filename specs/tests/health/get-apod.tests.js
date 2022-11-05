@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const { StatusCodes } = require("http-status-codes");
-const { getApodRequest } = require("../../helper/service-helper");
-const validTestData = require("../../../data/test-data/valid-params-test-data.json");
+const { getApodRequest } = require("../../helpers/service-helper");
+const validTestData = require("../../data/test-data/valid-params-test-data.json");
 
 describe("NASA API Health - Astronomy Picture of the Day", () => {
     describe("authenticated - GET /planetary/apod", () => {

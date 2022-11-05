@@ -1,11 +1,11 @@
 /* eslint-disable max-len */
 const { expect, assert } = require("chai");
-const { unauthenticatedErrorMessage, invalidFieldCombinationMessage } = require("../../constants/apod-error-message.constants");
+const { unauthenticatedErrorMessage, invalidFieldCombinationMessage } = require("../../data/constants/apod-error-message.constants");
 const { StatusCodes } = require("http-status-codes");
 const { getApodRequest } = require("../../helpers/service-helper");
-const validParamsTestData = require("../../../data/test-data/valid-params-test-data.json");
-const invalidEdgeCaseTestData = require("../../../data/test-data/invalid-edge-case-test-data.json");
-const invalidParamCombinations = require("../../../data/test-data/invalid-param-combinations-test-data.json");
+const validParamsTestData = require("../../../specs/data/test-data/valid-params-test-data.json");
+const invalidEdgeCaseTestData = require("../../../specs/data/test-data/invalid-edge-case-test-data.json");
+const invalidParamCombinations = require("../../../specs/data/test-data/invalid-param-combinations-test-data.json");
 const validateSchema = require("../../json-schemas/apod.json-schemas");
 
 describe("NASA API Regression - Astronomy Picture of the Day", () => {
