@@ -1,6 +1,6 @@
 const axios = require("axios");
 const url = require("url");
-const {HOST, APOD_PATH, API_KEY} = require("../constants/constants");
+const {HOST, APOD_PATH, API_KEY} = require("../data/constants/constants");
 
 const createUrl = (path, query) => [HOST, path].join("/") + (query ? `?${query}` : query);
 

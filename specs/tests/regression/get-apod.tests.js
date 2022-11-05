@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
 const { expect, assert } = require("chai");
-const { unauthenticatedErrorMessage, invalidFieldCombinationMessage } = require("../../specs/constants/apod-error-message.constants");
+const { unauthenticatedErrorMessage, invalidFieldCombinationMessage } = require("../../constants/apod-error-message.constants");
 const { StatusCodes } = require("http-status-codes");
-const { getApodRequest } = require("../../specs/helper/service-helper");
-const validParamsTestData = require("../../data/test-data/valid-params-test-data.json");
-const invalidEdgeCaseTestData = require("../../data/test-data/invalid-edge-case-test-data.json");
-const invalidParamCombinations = require("../../data/test-data/invalid-param-combinations-test-data.json");
-const validateSchema = require("../../specs/json-schemas/apod.json-schemas");
+const { getApodRequest } = require("../../helpers/service-helper");
+const validParamsTestData = require("../../../data/test-data/valid-params-test-data.json");
+const invalidEdgeCaseTestData = require("../../../data/test-data/invalid-edge-case-test-data.json");
+const invalidParamCombinations = require("../../../data/test-data/invalid-param-combinations-test-data.json");
+const validateSchema = require("../../json-schemas/apod.json-schemas");
 
 describe("NASA API Regression - Astronomy Picture of the Day", () => {
     describe("authenticated - GET /planetary/apod", () => {
